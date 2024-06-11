@@ -16,13 +16,10 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      - name: Install pnpm
-        run: |
-          npm install -g pnpm@7.0.0 # Reemplaza 7.0.0 con la versión que prefieras
       - name: Install, build, and upload your site
         uses: withastro/action@v2
         with:
-          package-manager: pnpm # Usa pnpm como gestor de paquetes
+          package-manager: pnpm@7 # Especifica la versión de pnpm
 
   deploy:
     needs: build
