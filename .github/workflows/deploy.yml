@@ -16,10 +16,16 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      - name: Install, build, and upload your site
-        uses: withastro/action@v2
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v3
         with:
-          package-manager: pnpm@7 # Especifica la versión de pnpm
+          version: 7.0.0 # Especifica la versión de pnpm
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile # Instala las dependencias sin la opción frozen lockfile
+      - name: Build the site
+        run: pnpm run build
+      - name: Upload site
+        uses: withastro/action@v2
 
   deploy:
     needs: build
