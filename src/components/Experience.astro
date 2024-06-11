@@ -1,0 +1,22 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCIE = [
+  {
+    date: "Actualmente...",
+    title: "Full Stack Developer",
+    company: "Help And Health Solutions",
+    description:
+      "Desarrollo una aplicación para el registro y control de los familiares registrados asociados con códigos QR en caso de pérdida y notificaciones mediante Whatsapp API."
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>
